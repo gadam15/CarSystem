@@ -3,7 +3,7 @@ import Bottom from "./Components/bottom";
 import ProfileBanner from "./Components/profileBanner";
 import { useState, useEffect } from 'react';
 
-const url = 'https://localhost:7107/api/CarAPI';
+const url = 'http://localhost:5160/api/CarAPI/GetAllCars';
 
 const FetchData = () => {
   const [users, setUsers] = useState([]);
