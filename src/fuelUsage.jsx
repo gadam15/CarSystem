@@ -48,7 +48,7 @@ const FuelUsage = () => {
                     <input type="number" onChange={changePeople}/><br/>
                     <input type="button" onClick={Calc} value="Sprawdź" />
 
-                    <p>Message: {howMuch}</p>
+                    <p>Koszt jazdy: {howMuch}</p>
                 </div>
             <Bottom/>
         </>
