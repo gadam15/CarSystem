@@ -1,55 +1,58 @@
 import React from "react";
 import { useState } from 'react';
 import Bottom from './Components/bottom';
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import ProfileBanner from "./Components/profileBanner";
 
-
-
 const FuelUsage = () => {
-    // const [message, setMessage] = useState('');
     const [km, setKm] = useState('');
     const [price, setPrice] = useState('');
     const [people, setPeople] = useState('');
+    const [fuel, setFuel] = useState('');
+    const [howMuch, setHowMuch] = useState('');
     
     const changeKm = (e) => {
-       setKm(e.target.value);
-       let IKm = parseInt(km, 10);
-    } 
-
+        setKm(e.target.value);
+    };
     const changePrice = (e) => {
-       setPrice(e.target.value);
-       let ISetPrice = parseInt(price, 10);
-    }
-
+        setPrice(e.target.value);
+    };
+    const changeFuel = (e) => {
+        setFuel(e.target.value);
+    };
     const changePeople = (e) => {
-       setPeople(e.target.value);
-       let IPeople = parseInt(people, 10);
-    }
- 
-    let howMuch = km + price + people;
+        setPeople(e.target.value);
+    };
     
-    console.log(howMuch);
+    const Calc = () => {
+        let FKm = parseFloat(km, 10);
+        let FPrice = parseFloat(price, 10);
+        let FFuel = parseFloat(fuel, 10);
+        let FPeople = parseFloat(people, 10);
 
+        let result = (FKm / 100 * FFuel * FPrice / FPeople).toFixed(2);
+        setHowMuch(result);
+    };
+    
     return(
         <>
             <ProfileBanner/>
                 <div className="zuzyciePaliwa">
-                    <h2>Wpisz ilość km</h2>
+                    <h2>Ilość km</h2>
                     <input type="number"  onChange={changeKm}/>
-                    <h2>Wpisz cenę paliwa</h2>
+                    <h2>Cena paliwa</h2>
                     <input type="number" onChange={changePrice}/>
+                    <h2>Spalanie auta L/100km</h2>
+                    <input type="number" onChange={changeFuel}/>
                     <h2>Ilośc osób</h2>
                     <input type="number" onChange={changePeople}/><br/>
-                    <input type="button" value="Sprawdź" />
+                    <input type="button" onClick={Calc} value="Sprawdź" />
 
-                     
-                    <p>Message: {}</p>
+                    <p>Message: {howMuch}</p>
                 </div>
             <Bottom/>
         </>
     );
 };
-
 
 export default FuelUsage;
