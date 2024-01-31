@@ -31,7 +31,8 @@ const FuelUsage = () => {
         let FPeople = parseFloat(people, 10);
 
         let result = (FKm / 100 * FFuel * FPrice / FPeople).toFixed(2);
-        setHowMuch(result);
+
+        setHowMuch("Koszt jazdy " + result + " zł");       
     };
     
     return(
@@ -46,9 +47,9 @@ const FuelUsage = () => {
                     <input type="number" onChange={changeFuel}/>
                     <h2>Ilośc osób</h2>
                     <input type="number" onChange={changePeople}/><br/>
-                    <input type="button" onClick={Calc} value="Sprawdź" />
+                    <input type="button" onClick={Calc} value="Sprawdź" /><br />
 
-                    <p>Koszt jazdy: {howMuch}</p>
+                    <p>{howMuch}</p>
                 </div>
             <Bottom/>
         </>
