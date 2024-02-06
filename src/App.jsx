@@ -5,7 +5,6 @@ import Login from './login';
 import Register from './register';
 import FetchData from './profile';
 import FuelUsage from './fuelUsage';
-import TestUsers from './Test/testUsers';
 
 function App() {
   return (
@@ -15,7 +14,6 @@ function App() {
         <Routes><Route path="/rejstracja" element={<Register/>} /></Routes>
         <Routes><Route path="/profil" element={<FetchData/>} /></Routes>
         <Routes><Route path="/zuzyciePaliwa" element={<FuelUsage/>} /></Routes>
-        <Routes><Route path="/test" element={<TestUsers/>} /></Routes>
     </div>
   );
 }

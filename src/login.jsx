@@ -1,12 +1,18 @@
 import axios from "./Test/axios";
-import React, { Fragment, useState } from "react";
+// import Cookies from "js-cookie";
+import { CookiesProvider, useCookies } from "react-cookie";
+import {jwtDecode} from "jwt-decode";
+import React, { Fragment, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Banner from "./Components/banner";
 import Bottom from "./Components/bottom";
 
 const Login = () => {
 
+    const navigateTo = useNavigate();
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
+    const [cookies, setCookie] = useCookies(["jwtToken"]);
 
     const handleEmailChange = (value) =>{
         setPassword(value);
@@ -24,11 +30,26 @@ const Login = () => {
         
         const url = 'https://localhost:7107/api/UserAPI/Login'; 
         
-        axios.post(url,data).then((result)=>{
-            alert(result.data);
-        }).catch((error)=>{
-            alert(error.response.data);
-        })
+        
+        // When the user logs in
+        const response = fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then((response) => response.json())
+        .then((data1) => {
+           
+            // console.log(data1)
+            const jwtToken = data1.jwtToken;
+            console.log(jwtToken);
+
+            // Cookies.set('token', jwtToken, { expires: 7, httpOnly: true});
+            document.cookie = `JWT=${jwtToken}; expires=${new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toUTCString()};  `;
+            // setCookie("user", jwtToken, { path: "/", httpOnly: true });
+        });
+          
     }
 
     return(
