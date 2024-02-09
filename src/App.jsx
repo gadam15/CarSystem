@@ -1,20 +1,43 @@
-import React from 'react';
-import Home from './homePage';
-import { Route, Routes } from 'react-router-dom';
-import Login from './login';
-import Register from './register';
-import FetchData from './profile';
-import FuelUsage from './fuelUsage';
+import Register from './Components/register';
+import Login from './Components/login';
+import FuelUsage from './Components/fuelUsage';
+import Home  from './Components/homePage';
+import Admin from './Components/Admin'
 
+import Layout from './Components/Layout';
+import {Routes, Route} from 'react-router-dom'
+import Unauthorized from './Components/Unauthorized';
+import Missing from './Components/Missing';
+import RequireAuth from './Components/RequireAuth';
+import Profile from './Components/profile';
+import PersistLogin from './Components/PersistLogin';
+const ROLES = {
+  'User': 'User',
+  'Admin': 'Admin'
+}
 function App() {
+
   return (
-    <div className="App">
-        <Routes><Route path="/" element={<Home/>} /></Routes>
-        <Routes><Route path="/logowanie" element={<Login/>} /></Routes>
-        <Routes><Route path="/rejstracja" element={<Register/>} /></Routes>
-        <Routes><Route path="/profil" element={<FetchData/>} /></Routes>
-        <Routes><Route path="/zuzyciePaliwa" element={<FuelUsage/>} /></Routes>
-    </div>
+    <Routes>
+      <Route path ="/" element={<Layout/>}>
+        
+        <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
+        <Route path="unauthorized" element={<Unauthorized />} />
+        <Route element={<PersistLogin />}>
+        <Route element={<RequireAuth allowedRoles={['Admin', 'User']}/>}>
+          <Route path="/" element={<Home />}/>
+          </Route>
+          <Route element={<RequireAuth allowedRoles={['Admin']}/>}>
+          <Route path="admin" element={<Admin />} />
+          </Route>
+          <Route element={<RequireAuth allowedRoles={['User']}/>}>
+          <Route path="user" element={<Profile />} />
+          </Route>
+        </Route> 
+        <Route path="*" element={<Missing />} />
+      </Route>
+    </Routes>
   );
 }
 

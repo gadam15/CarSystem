@@ -1,4 +1,4 @@
-*{
+/*{
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
@@ -28,7 +28,7 @@ background-color: #22313f;
   height: 10vh;
   display: flex;
   align-items: center;
-  /* padding-right: 20px ; */
+  /* padding-right: 20px ; 
   
 }
 
@@ -76,7 +76,7 @@ background-color: #22313f;
   color:  #8dc6ff;
 }
 
-/* LOGOWANIE*/
+/* LOGOWANIE
 .zaloguj, .rejstracja{
   background-color: #34495e;
   color: #e4f1fe;
@@ -87,20 +87,20 @@ background-color: #22313f;
   font-size: 150%;
 }
 
-/* REJSTRACJA */
+/* REJSTRACJA 
 .zaloguj input, .rejstracja input{
   padding: 5px;
   margin-bottom: 30px;
 }
 
-/* PROFIL */
+/* PROFIL 
 .profil{
   background-color: #34495e;
   color: #e4f1fe;
   text-align: center;
   padding: 50px;
   height: 84vh;
-  /* display: flex; */
+  /* display: flex; 
   align-items: center;
   justify-content: center;
 }
@@ -108,7 +108,7 @@ background-color: #22313f;
 .profil table{
   width: 50%;
   height: 18%;
-  /* border-style: solid ; */
+  /* border-style: solid ; 
   margin: 10% auto auto auto;
   font-size: 130%;
 }
@@ -117,7 +117,7 @@ background-color: #22313f;
   margin: 10px;
 }
 
-/* FUEL_USAGE */
+/* FUEL_USAGE 
 
 .zuzyciePaliwa{
   background-color: #34495e;
@@ -125,7 +125,7 @@ background-color: #22313f;
   text-align: center;
   padding: 50px;
   height: 84vh;
-  /* display: flex; */
+  /* display: flex; 
   align-items: center;
   justify-content: center;
   font-size: 150%;
@@ -149,3 +149,123 @@ background-color: #22313f;
   kolor 4:
       #34495e 
 */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    color: #fff;
+}
+
+body {
+    min-height: 100vh;
+    background-color: dodgerblue;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; 
+  padding: 1rem 0.5rem;
+}
+
+section {
+    width: 100%;
+    max-width: 420px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 1rem;
+    background-color: rgba(0,0,0,0.4);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-grow: 1;
+    padding-bottom: 1rem;
+}
+
+a, a:visited {
+    color: #fff;
+}
+
+input[type="text"],
+input[type="password"],
+button,
+textarea {
+  font-family: 'Nunito', sans-serif;
+  font-size: 22px;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+}
+
+label,
+button {
+  margin-top: 1rem;
+}
+
+button {
+  padding: 0.5rem;
+}
+
+.instructions {
+    font-size: 0.75rem;
+    border-radius: 0.5rem;
+    background: #000;
+    color: #fff;
+    padding: 0.25rem;
+    position: relative;
+    bottom: -10px;
+}
+
+.instructions > svg {
+    margin-right: 0.25rem;
+}
+
+.offscreen {
+    position: absolute;
+    left: -9999px;
+}
+
+.hide {
+    display: none;
+}
+
+.valid {
+    color: limegreen;
+    margin-left: 0.25rem;
+}
+
+.invalid {
+    color: red;
+    margin-left: 0.25rem;
+}
+
+.errmsg {
+    background-color: lightpink;
+    color: firebrick;
+    font-weight: bold;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.line {
+    display: inline-block;
+}
+[type="checkbox"]{
+  height: 20px;
+  width: 20px;
+  margin: 0 5px 2px 2px;
+}

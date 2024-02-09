@@ -1,8 +1,8 @@
 import React from "react";
 import { useState } from 'react';
-import Bottom from './Components/bottom';
+import Bottom from './bottom';
 // import { Link } from "react-router-dom";
-import ProfileBanner from "./Components/profileBanner";
+import ProfileBanner from "./profileBanner";
 
 const FuelUsage = () => {
     const [km, setKm] = useState('');
@@ -34,7 +34,7 @@ const FuelUsage = () => {
 
         setHowMuch("Koszt jazdy " + result + " zł");       
     };
-    
+
     return(
         <>
             <ProfileBanner/>
