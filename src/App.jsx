@@ -3,7 +3,7 @@ import Login from './Components/login';
 import FuelUsage from './Components/fuelUsage';
 import Home  from './Components/homePage';
 import Admin from './Components/Admin'
-
+import Main from './Components/MainPage'
 import Layout from './Components/Layout';
 import {Routes, Route} from 'react-router-dom'
 import Unauthorized from './Components/Unauthorized';
@@ -20,7 +20,7 @@ function App() {
   return (
     <Routes>
       <Route path ="/" element={<Layout/>}>
-        
+        <Route path="main" element={<Main />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="unauthorized" element={<Unauthorized />} />

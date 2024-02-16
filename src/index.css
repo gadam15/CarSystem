@@ -1,154 +1,3 @@
-/*{
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-  
-}
-.html{
-  height: auto;
-}
-.upper1{ 
-background-color: #22313f;
-  text-align: left; 
-  width: 50%;
-  height: auto;
-  color: #e4f1fe;
-  align-items: center;
-  height: 10vh;
-  display: flex;
-  padding-left: 20px;
-}
-
-.upper2{ 
-background-color: #22313f;
-  width: 50%;
-  height: auto;
-  color: #e4f1fe;
-  justify-content: center;
-  height: 10vh;
-  display: flex;
-  align-items: center;
-  /* padding-right: 20px ; 
-  
-}
-
-.banner{
-  display: flex;
-}
-
-.middle1{
-  background-color: #34495e;
-  color: #e4f1fe;
-  text-align: center;
-  align-items: center;
-  display: flex;
-  padding: 50px;
-  width: 100%;
-  height: 32vh;
-  justify-content: center;
-  font-size: 150%;
-}
-
-.middle2{
-  background-color: #34495e;
-  color: #e4f1fe;
-  text-align: center;
-  padding: 50px;
-  width: 100%;
-  height: 52vh;
-  word-spacing: 50px;
-  font-size: 150%;
-}
-
-.bottom{
-  background-color: #22313f;
-  color: #e4f1fe;
-  height: 6vh;
-  padding: 10px;
-}
-
-.banner a, .middle2 a{
-  text-decoration: none;
-  color: #e4f1fe;
-}
-
-.banner a:hover, .middle2 a:hover{
-  color:  #8dc6ff;
-}
-
-/* LOGOWANIE
-.zaloguj, .rejstracja{
-  background-color: #34495e;
-  color: #e4f1fe;
-  text-align: center;
-  padding: 50px;
-  width: 100%;
-  height: 84vh;
-  font-size: 150%;
-}
-
-/* REJSTRACJA 
-.zaloguj input, .rejstracja input{
-  padding: 5px;
-  margin-bottom: 30px;
-}
-
-/* PROFIL 
-.profil{
-  background-color: #34495e;
-  color: #e4f1fe;
-  text-align: center;
-  padding: 50px;
-  height: 84vh;
-  /* display: flex; 
-  align-items: center;
-  justify-content: center;
-}
-
-.profil table{
-  width: 50%;
-  height: 18%;
-  /* border-style: solid ; 
-  margin: 10% auto auto auto;
-  font-size: 130%;
-}
-
-.profil td{
-  margin: 10px;
-}
-
-/* FUEL_USAGE 
-
-.zuzyciePaliwa{
-  background-color: #34495e;
-  color: #e4f1fe;
-  text-align: center;
-  padding: 50px;
-  height: 84vh;
-  /* display: flex; 
-  align-items: center;
-  justify-content: center;
-  font-size: 150%;
-}
-
-.zuzyciePaliwa input{
-  padding: 5px;
-  margin-bottom: 30px;
-}
-
-/* 
-  kolor 1: 
-      #e4f1fe
-
-  kolor 2:
-      #8dc6ff
-
-  kolor 3: 
-      #22313f
-
-  kolor 4:
-      #34495e 
-*/
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
@@ -166,7 +15,9 @@ html {
 
 body {
     min-height: 100vh;
-    background-color: dodgerblue;
+    color: white;
+    background: rgb(62,62,62);
+    background: linear-gradient(162deg, rgba(62,62,62,1) 0%, rgba(142,138,138,1) 63%, rgba(128,128,128,1) 90%);
 }
 
 .App {
@@ -268,4 +119,31 @@ button {
   height: 20px;
   width: 20px;
   margin: 0 5px 2px 2px;
+}
+[class *= "col"]{
+  background-color: gray;
+  color: white;
+  padding: 1rem;
+  margin: 10px;
+}
+
+.navbar{
+  overflow: hidden;
+  background-color: #333;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  
+  z-index: 1030;
+}
+
+.navbar *{
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 1px;
+  text-decoration: none;
+  margin: 1px
+
 }
