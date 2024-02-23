@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
-import './index.css'
+import '../node_modules/jquery/dist/jquery.js'
+import '../node_modules/bootstrap/dist/js/bootstrap.js';
+
 import App from './App';
 import { AuthProvider } from './context/AuthProvider';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';

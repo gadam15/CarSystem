@@ -2,7 +2,7 @@ import { useRef, useState, useEffect} from 'react';
 import useAuth from '../hooks/useAuth';
 import AuthContext from "../context/AuthProvider";
 import {Link, useNavigate, useLocation} from "react-router-dom"
-
+import '../loginstyle.css'
 import axios from '../api/axios';
 const LOGIN_URL = '/UserAPI/Login';
 
@@ -71,8 +71,8 @@ const Login = () => {
     }, [persist])
 
     return(
-        
-        <section>
+        <main class="Login">
+        <section id="loginbody">
             <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live='assertive'>{errMsg}</p>
             <h1>Sign In</h1>
             <form onSubmit={handleSubmit}>
@@ -102,6 +102,7 @@ const Login = () => {
                     required
                     
                  />
+                 <br />
                  <button>Sign In</button>
                  <div className="persistCheck">
                     <input type="checkbox" id="persist" onChange={togglePersist} checked={persist}/>
@@ -115,6 +116,7 @@ const Login = () => {
                 </span>
             </p>
         </section>
+        </main>
     )}
     
 

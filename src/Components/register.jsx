@@ -1,7 +1,7 @@
 import {useRef, useState, useEffect} from "react";
 import { Navigate } from "react-router-dom";
 import axios from "../api/axios";
-
+import "../index.css"
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
 const EMAIL_REGEX = /^[a-z][a-z0-9-_@.]{8,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -97,11 +97,13 @@ const Register = () => {
     }
 
     return (
-        <>
+        <main class="Login">
+        
         {success ? (
             <Navigate to="/login" replace={true}></Navigate>
         ) : (
-        <section>
+        
+        <section id="loginbody">
             <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
                     <h1>Register</h1>
                     <form onSubmit={handleSubmit}>
@@ -191,8 +193,10 @@ const Register = () => {
 
             </form>
         </section>
+        
         )}
-        </>
+        
+        </main>
     )
 }
 export default Register
