@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from 'react';
 import Bottom from './bottom';
 // import { Link } from "react-router-dom";
-import ProfileBanner from "./profileBanner";
+import Navbar from "./Elements/navbar";
 
 const FuelUsage = () => {
     const [km, setKm] = useState('');
@@ -37,7 +37,7 @@ const FuelUsage = () => {
 
     return(
         <>
-            <ProfileBanner/>
+            <Navbar/>
                 <div className="zuzyciePaliwa">
                     <h2>Ilość km</h2>
                     <input type="number"  onChange={changeKm}/>

@@ -1,5 +1,5 @@
 import React from "react";
-
+import {Link, useNavigate, useLocation} from "react-router-dom"
 const Navbar = () => {
     return(
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -21,10 +21,8 @@ const Navbar = () => {
                     <i class="bi-car-front-fill"></i> Your Cars
                     </a>
                 </li>
-                <li className="nav-item active">
-                <a href="#" className="nav-link">
-                    <i class="bi-fuel-pump-fill"></i> Fuel Usage
-                    </a>
+                <li className="nav-item">
+                    <Link to="/fuelUsage" className="nav-link"><i className="bi-fuel-pump-fill"></i> Fuel Cost</Link>
                 </li>
             </ul>
         </div>
