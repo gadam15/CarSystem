@@ -97,7 +97,7 @@ const Register = () => {
     }
 
     return (
-        <main class="Login">
+        <main className="Login">
         
         {success ? (
             <Navigate to="/login" replace={true}></Navigate>
@@ -189,6 +189,7 @@ const Register = () => {
                         <p id="confirmnote" className={matchFocus && !validMatch ? "instructions" : "offscreen"}>
                             Must match the first password input field.
                         </p>
+                        <br />
                         <button disabled={!validName || !validPwd || !validMatch ? true : false}>Sign In</button>
 
             </form>

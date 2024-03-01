@@ -1,6 +1,14 @@
 import React from "react";
+import useLogout from "D:/Szymon L/CarSysFront/CS/src/hooks/useLogout";
 import {Link, useNavigate, useLocation} from "react-router-dom"
 const Navbar = () => {
+    const navigate = useNavigate();
+    const logout = useLogout();
+
+    const signOut = async () => {
+        await logout();
+        navigate('/login');
+    }
     return(
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
@@ -23,6 +31,11 @@ const Navbar = () => {
                 </li>
                 <li className="nav-item">
                     <Link to="/fuelUsage" className="nav-link"><i className="bi-fuel-pump-fill"></i> Fuel Cost</Link>
+                </li>
+                <li className="nav-item">
+                    <a href="#" className="nav-link"   onClick={signOut}> 
+                        <i className="bi-box-arrow-left"></i> Sign Out
+                    </a>
                 </li>
             </ul>
         </div>

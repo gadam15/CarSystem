@@ -1,5 +1,6 @@
 import { useNavigate, Link } from "react-router-dom";
 import useLogout from "../hooks/useLogout";
+import Navbar from "./Elements/navbar";
 
 const Home = () => {
     const navigate = useNavigate();
@@ -11,6 +12,8 @@ const Home = () => {
     }
 
     return (
+        <>
+        <Navbar />
         <section>
             <h1>Home</h1>
             <br />
@@ -27,6 +30,7 @@ const Home = () => {
                 <button onClick={signOut}>Sign Out</button>
             </div>
         </section>
+        </>
     )
 }
 

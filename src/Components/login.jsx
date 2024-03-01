@@ -73,7 +73,7 @@ const Login = () => {
 
     return(
              
-        <main class="Login">
+        <main className="Login">
         <section id="loginbody">
             <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live='assertive'>{errMsg}</p>
             <h1>Sign In</h1>

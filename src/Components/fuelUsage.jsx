@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from 'react';
-import Bottom from './bottom';
+
 // import { Link } from "react-router-dom";
 import Navbar from "./Elements/navbar";
 
@@ -51,7 +51,7 @@ const FuelUsage = () => {
 
                     <p>{howMuch}</p>
                 </div>
-            <Bottom/>
+            
         </>
     );
 };
