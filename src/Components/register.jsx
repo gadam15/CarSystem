@@ -97,7 +97,7 @@ const Register = () => {
     }
 
     return (
-        <main class="Login">
+        <main className="Login">
         
         {success ? (
             <Navigate to="/login" replace={true}></Navigate>

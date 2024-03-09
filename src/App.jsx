@@ -27,6 +27,7 @@ function App() {
         <Route element={<PersistLogin />}>
         <Route element={<RequireAuth allowedRoles={['Admin', 'User']}/>}>
           <Route path="/" element={<Home />}/>
+          <Route path="fuelUsage" element={<FuelUsage />}/>
           </Route>
           <Route element={<RequireAuth allowedRoles={['Admin']}/>}>
           <Route path="admin" element={<Admin />} />
