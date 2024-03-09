@@ -67,7 +67,7 @@ const Login = () => {
         setPersist(prev => !prev);
     }
     useEffect(() => {
-        localStorage.setItem("persist", persist)
+        localStorage.setItem("persist", true)
     }, [persist])
 
     return(
@@ -103,11 +103,8 @@ const Login = () => {
                     
                  />
                  <br />
-                 <button>Sign In</button>
-                 <div className="persistCheck">
-                    <input type="checkbox" id="persist" onChange={togglePersist} checked={persist}/>
-                    <label htmlFor="persist">Trust This Device</label>
-                 </div>
+                 <button onChange={togglePersist}>Sign In</button>
+                 
             </form>
             <p>
                 Need an Account? <br/>
