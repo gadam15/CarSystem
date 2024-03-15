@@ -1,17 +1,23 @@
 import { Link } from "react-router-dom"
 import Users from "./Users"
+import Cars from "./Cars"
+import Navigbar from "./Elements/navbar"
 
 const Admin = () => {
     return (
-        <section>
-            <h1>Admins Page</h1>
+        <>
+        <Navigbar />
+        <div className="container text-center">
+            
             <br />
-            <Users />
+            <Cars />
             <br />
             <div className="flexGrow">
                 <Link to="/">Home</Link>
             </div>
-        </section>
+            
+        </div>
+        </>
     )
 }
 
