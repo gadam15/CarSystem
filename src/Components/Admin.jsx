@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import Users from "./Users"
 import Cars from "./Cars"
 import Navigbar from "./Elements/navbar"
+import UserCars from "./UserCars"
 
 const Admin = () => {
     return (
@@ -10,12 +11,12 @@ const Admin = () => {
         <div className="container text-center">
             
             <br />
-            <Cars />
+            <UserCars />
             <br />
             <div className="flexGrow">
                 <Link to="/">Home</Link>
             </div>
-            
+
         </div>
         </>
     )
