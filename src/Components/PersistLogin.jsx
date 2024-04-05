@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react'
 import useRefreshToken from "../hooks/useRefreshToken";
 import useAuth from "../hooks/useAuth";
 
+//Komponent weryfikujący token JWT (tym samym fakt bycia zalogowanym przez użytkownika)
 const PersistLogin = () => {
     const [isLoading, setIsLoading] = useState(true)
     const refresh = useRefreshToken();

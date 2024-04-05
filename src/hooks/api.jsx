@@ -1,7 +1,8 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
-
+//Komponent konfigurujący połaczenie z API
 const api = axios.create({
+  //URL API
   baseURL: '/api',
 });
 
@@ -11,23 +12,23 @@ api.interceptors.response.use(
     async (error) => {
       const originalRequest = error.config;
   
-      // If the error status is 401 and there is no originalRequest._retry flag,
-      // it means the token has expired and we need to refresh it
+      //Błąd oznacza wygaśnięcie tokenu JWT, a tym samym odświerzenie go
       if (error.response.status === 401 && !originalRequest._retry) {
         originalRequest._retry = true;
   
         try {
+          //Zapytanie do API
           const refreshToken = Cookies.get("refresh")
           const response = await axios.post('/api/refresh-token', { refreshToken });
           const { token } = response.data;
   
           localStorage.setItem('token', token);
   
-          // Retry the original request with the new token
+          // Ustawienie niezbędnego do autoryzowanych metod nagłówka
           originalRequest.headers.Authorization = `Bearer ${token}`;
           return axios(originalRequest);
         } catch (error) {
-          // Handle refresh token error or redirect to login
+          
         }
       }
   

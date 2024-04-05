@@ -4,6 +4,7 @@ import Cars from "./Cars"
 import Navigbar from "./Elements/navbar"
 import UserCars from "./UserCars"
 
+//Komponent podstrony wyświętlającej auta zalogowanego użytkownika
 const MyCars = () => {
     
     return (

@@ -3,6 +3,8 @@ import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import { useNavigate, useLocation, Link, redirect, useSearchParams} from "react-router-dom"
 import dateFormat from 'dateformat'
 
+
+//Komponent podstrony wyświetlającej konkretne dane o samochodzie (tylko samochody z podstrony publicznej)
 const CarDetails = () => {
     const [ car, setCar] = useState();
     const axiosPrivate = useAxiosPrivate();
@@ -17,6 +19,7 @@ const CarDetails = () => {
         const getCars = async () =>{
             try{
                 
+                //Zapytanie do API
                 const response = await axiosPrivate.get(`/CarAPI/GetCarById/${id}`, {
                     signal: controller.signal
                 });
@@ -24,6 +27,7 @@ const CarDetails = () => {
                 isMounted && setCar(response.data);
                 
             }catch(err){
+                //W razie błędów przekierować do strony 404, bądź do logowania
                 console.error(err);
                 if(err.response?.status===404){
                     navigate('/*', { state: {from: location}, replace: true})
@@ -43,6 +47,7 @@ const CarDetails = () => {
     
     console.log(car)
     
+    //Zwrócenie danych
     return (
         
         <div className="container h-75 text-center bg-dark mt-1 rounded-2 pb-2">

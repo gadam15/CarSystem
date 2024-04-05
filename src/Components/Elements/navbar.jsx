@@ -3,6 +3,7 @@ import useLogout from "../../hooks/useLogout";
 import {Link, useNavigate, useLocation} from "react-router-dom"
 import useAuth from '../../hooks/useAuth';
 
+//Tworzenie komponentu paska nawigacji
 const Navigbar = () => {
     const navigate = useNavigate();
     const logout = useLogout();

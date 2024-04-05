@@ -2,7 +2,7 @@ import { axiosPrivate } from "../api/axios";
 import { useEffect } from "react";
 import useRefreshToken from "./useRefreshToken";
 import useAuth  from "./useAuth";
-
+//Komponent służący do konfiguracji autoryzowanych zapytań do API
 const useAxiosPrivate = () => {
     const refresh = useRefreshToken();
     const { auth } = useAuth();
@@ -10,6 +10,7 @@ const useAxiosPrivate = () => {
     useEffect(()=>{
         const requestIntercept = axiosPrivate.interceptors.request.use(
             config => {
+                //Ustawienie nagłówka
                 if(!config.headers['Authorization']){
                     config.headers['Authorization'] = `Bearer ${auth?.accessToken}`;
 
@@ -23,6 +24,7 @@ const useAxiosPrivate = () => {
                 const prevRequest = error?.config;
                 if((error?.response?.status === 403 ||  error?.response?.status === 401) && !prevRequest?.sent){
                     prevRequest.sent = true;
+                    //Ustawienie nagłówka z odświerzonym tokenem JWT
                     const newAccessToken = await refresh()
                     prevRequest.headers['Authorization'] = `Bearer ${newAccessToken}`;
                     return axiosPrivate(prevRequest);

@@ -4,7 +4,9 @@ import Footer from "./Elements/footer";
 // import { Link } from "react-router-dom";
 import Navbar from "./Elements/navbar";
 
+//Komponent podstrony obliczającej koszt trasy
 const FuelCost = () => {
+    //Deklaracja zmiennych
     const [km, setKm] = useState('');
     const [price, setPrice] = useState('');
     const [people, setPeople] = useState('');
@@ -24,6 +26,7 @@ const FuelCost = () => {
         setPeople(e.target.value);
     };
     
+    //Obliczenia
     const Calc = () => {
         let FKm = parseFloat(km, 10);
         let FPrice = parseFloat(price, 10);
@@ -32,6 +35,7 @@ const FuelCost = () => {
 
         let result = (FKm / 100 * FFuel * FPrice / FPeople).toFixed(2);
 
+        //Wyświetlenie błędów
         if(isNaN(result)){
             return setHowMuch("Set all data")
         } else {
@@ -40,6 +44,7 @@ const FuelCost = () => {
         }
     };
 
+    //Zwrócenie widoku stony
     return(
         <>
              

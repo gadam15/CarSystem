@@ -7,31 +7,37 @@ import axios, { axiosPrivate } from '../api/axios';
 
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
 
+//Komponent podstrony aktualizującej dane o samochodzie
 const UpdateCar = () => {
     
     const navigate = useNavigate();
     const axiosPrivate = useAxiosPrivate();
 
+    //deklaracja zmiennych
     const [model, setModel] = useState('');
     const [marka, setMarka] = useState('');
     const [rok, setRok] = useState('');
     const [licznik, setLicznik] = useState('');
     const [opis, setOpis] = useState('');
 
+    //Pobranie parametru ID z URL
     const queryParams = new URLSearchParams(location.search);
     const id = queryParams.get('id');
     const handleSubmit = async (e) =>{
         e.preventDefault();
         try{
+            //Zapytanie do API
             await axiosPrivate.put(`/CarAPI/UpdateCar/${id}`, {marka, model, rok, licznik, opis});
             navigate("/myCars")
         }
         catch(err){
+            //Alert wyśiwetlany w przypadku nieautoryzowanej próby wykonania zapytania
             alert("You are not allowed to do this! Go back!!!")
         }
         
     }
     
+    //Zwrot widoku strony
     return(
              
         <div className="container h-75 text-center">

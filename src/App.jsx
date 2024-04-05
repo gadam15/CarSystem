@@ -1,3 +1,5 @@
+//Strona będąca routerem całej aplikacji. Tutaj nadaje się komponentom ścierzkę oraz definiuje ich zabezpieczenia
+
 import Register from './Components/register';
 import Login from './Components/login';
 import FuelUsage from './Components/fuelUsage';
@@ -27,6 +29,7 @@ const ROLES = {
 }
 function App() {
 
+  //Zwrot wszystkich elementów routera (pierwsze są niewymagające zalogowania, kolejne wymagają już od użytkownika bycia zalogowanym)
   return (
     <Routes>
       <Route path ="/" element={<><Layout/></>}>

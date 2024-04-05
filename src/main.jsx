@@ -7,6 +7,7 @@ import App from './App';
 import { AuthProvider } from './context/AuthProvider';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+//Renderowanie aplikacji
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>

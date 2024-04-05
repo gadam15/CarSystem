@@ -2,6 +2,9 @@ import {useRef, useState, useEffect} from "react";
 import { Navigate } from "react-router-dom";
 import axios from "../api/axios";
 import "../index.css"
+//Komponent strony rejestracji użytkownika
+
+//Wymagania złożoności danych nazwy użytkownika, email oraz hasła
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
 const EMAIL_REGEX = /^[a-z][a-z0-9-_@.]{8,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -10,6 +13,7 @@ const Register = () => {
     const userRef = useRef();
     const errRef = useRef();
 
+    //Deklaracja zmiennych
     const [user, setUser] = useState('');
     const [validName, setValidName] = useState(false);
     const [userFocus, setUserFocus] = useState(false)
@@ -28,6 +32,8 @@ const Register = () => {
 
     const[errMsg, setErrMsg] = useState('')
     const [success, setSuccess] = useState(false)
+
+    //Walidacja na bierząco poprawności wprowadzanych danych
     useEffect(() => {
         userRef.current.focus();
     }, [])
@@ -58,6 +64,7 @@ const Register = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        //Sprawdzanie poprawności danych
         const v1 = USER_REGEX.test(user);
         const v2 = PWD_REGEX.test(pwd);
         const v3 = EMAIL_REGEX.test(email)
@@ -71,6 +78,7 @@ const Register = () => {
                 password: pwd,
                 email: email
             }
+            //Zapytanie do API
             const response = await axios.post('/UserAPI/Register', data, 
             {
                 headers: { 'Content-Type': 'application/json' },
@@ -82,6 +90,7 @@ const Register = () => {
             console.log(JSON.stringify(response))
             setSuccess(true)
         }catch(err){
+            //Zwrot ewentualnych błędów
             if(!err?.response){
                 setErrMsg('No Server Response');
 
@@ -96,6 +105,7 @@ const Register = () => {
         }
     }
 
+    //Zwrot widoku strony rejestracji
     return (
         <main className="Login">
         

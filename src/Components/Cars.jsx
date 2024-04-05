@@ -2,7 +2,10 @@ import { useState, useEffect } from "react"
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import { useNavigate, useLocation, Link, redirect} from "react-router-dom"
 
+//Komponent podstrony wyświetającej wszsytkie samochody
 const Cars = () => {
+
+    //Deklaracja zmiennej
     const [ cars, setCars] = useState();
     const axiosPrivate = useAxiosPrivate();
     const navigate = useNavigate();
@@ -16,6 +19,7 @@ const Cars = () => {
         
         const getCars = async () =>{
             try{
+                //Zapytanie do API
                 const response = await axiosPrivate.get('/CarAPI/GetAllCars', {
                     signal: controller.signal
                 });
@@ -23,6 +27,7 @@ const Cars = () => {
                 isMounted && setCars(response.data);
                 
             }catch(err){
+                //W razie błędu przekierować do strony logowania
                 console.error(err);
                 navigate('/login', { state: {from: location}, replace: true});
             }
@@ -35,6 +40,8 @@ const Cars = () => {
         }
     },[])
     console.log(cars)
+
+    //Zwrócenie danych
     return (
         
         <article>

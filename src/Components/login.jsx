@@ -7,7 +7,9 @@ import axios from '../api/axios';
 
 const LOGIN_URL = '/UserAPI/Login';
 
+//Komponent strony logowania
 const Login = () => {
+    //Konfiguracja
     const { setAuth, persist, setPersist } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
@@ -15,6 +17,7 @@ const Login = () => {
     const userRef = useRef();
     const errRef = useRef();
 
+    //Deklaracja zmiennych
     const [user, setUser] = useState('');
     const [pwd, setPwd] = useState('');
     const [errMsg, setErrMsg] = useState('');
@@ -31,6 +34,7 @@ const Login = () => {
         e.preventDefault();
         
         try {
+            //Zapytanie do API
             const response = await axios.post("/UserAPI/Login",
                 JSON.stringify({email: user, password: pwd}),
                 {
@@ -39,7 +43,8 @@ const Login = () => {
                 }
             );
             console.log(JSON.stringify(response?.data));
-            //console.log(JSON.stringify(response));
+            
+            //ustawienie danych do autentykacji
             const accessToken = response?.data?.jwtToken;
             const roles = [];
             const id = response?.data?.id;
@@ -50,6 +55,7 @@ const Login = () => {
             setPwd('');
             navigate(from, {replace: true});
         }catch(err){
+            //Kody błędów
             if(!err?.response){
                 setErrMsg('No server response')
             }
@@ -72,6 +78,7 @@ const Login = () => {
         localStorage.setItem("persist", true)
     }, [persist])
 
+    //Zwrócenie widoku logowania
     return(
              
         <main className="Login">

@@ -7,26 +7,32 @@ import axios, { axiosPrivate } from '../api/axios';
 
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
 
+//Komponent podstrony aktualizującej stan licznika samochodu
 const CounterChange = () => {
     const { auth } = useAuth();
     const navigate = useNavigate();
     const axiosPrivate = useAxiosPrivate();
+    //pobranie parametru ID z URL
     const queryParams = new URLSearchParams(location.search);
     const id = queryParams.get('id');
+    //Deklaracja zmiennej licznika
     const [licznik, setLicznik] = useState('');
     
     const handleSubmit = async (e) =>{
         e.preventDefault();
         try{
+        //Zaptytanie do API
         await axiosPrivate.put(`/CarAPI/UpdateCounter/${id}`, {licznik});
         navigate(`/userCarDetails?id=${id}`)
         }
         catch(err){
+        //Alert jeśli czynność jest nieautoryzowana
             alert("You are not allowed to do this! Go back!!!")
         }
         
     }
     
+    //Zwrócenie widoku oraz forma wykonującego zapytanie
     return(
              
         <div className="container h-75 text-center">

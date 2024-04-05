@@ -6,13 +6,13 @@ import '../loginstyle.css'
 import axios, { axiosPrivate } from '../api/axios';
 
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
-
+//Komponent podstrony tworzenie nowego samochodu
 const AddCar = () => {
     const { auth } = useAuth();
     
     const navigate = useNavigate();
     const axiosPrivate = useAxiosPrivate();
-
+    //Deklaracja zmiennych
     const [model, setModel] = useState('');
     const [marka, setMarka] = useState('');
     const [rok, setRok] = useState('');
@@ -22,7 +22,7 @@ const AddCar = () => {
 
     
     
-
+    //Wysłanie zapytania do API o utworzenie oraz przeniesienie do innej strony
     const handleSubmit = async (e) =>{
         e.preventDefault();
         await axiosPrivate.post("/CarAPI/CreateCar", {marka, model, rok, licznik, opis});
@@ -32,7 +32,7 @@ const AddCar = () => {
     }
     
     return(
-             
+        //Formularz wykonujący zapytanie
         <div className="container h-75 text-center">
         <section className="position-absolute top-50 start-50 translate-middle w-25 bg-dark bg-gradient p-2 rounded-2">
           
@@ -82,7 +82,7 @@ const AddCar = () => {
 
                  />
                  <label htmlFor="licznik">
-                    Counter: 
+                    Counter (km): 
                 </label>
                 <input 
                     type="text" 

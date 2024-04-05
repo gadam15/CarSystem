@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import { useNavigate, useLocation, Link, redirect} from "react-router-dom"
 
+//Komponent podstrony wyświetlający auta zalogowanego użytkownika
 const UserCars = () => {
     const [ cars, setCars] = useState();
     const axiosPrivate = useAxiosPrivate();
@@ -13,7 +14,7 @@ const UserCars = () => {
         const controller = new AbortController();
         const getCars = async () =>{
             try{
-                
+                //Zapytanie do API
                 const response = await axiosPrivate.get('/CarAPI/GetUserCars', {
                     signal: controller.signal
                 });
@@ -21,6 +22,7 @@ const UserCars = () => {
                 isMounted && setCars(response.data);
                 
             }catch(err){
+                //Błędy i przekierowanie do strony logowania
                 console.error(err);
                 navigate('/login', { state: {from: location}, replace: true});
             }
@@ -34,7 +36,7 @@ const UserCars = () => {
         }
     },[])
     console.log(cars)
-    
+    //Zwrot widoku podstrony
     return (
         
         <article>
