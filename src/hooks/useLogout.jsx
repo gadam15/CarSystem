@@ -4,7 +4,7 @@ import useAuth from "./useAuth";
 const useLogout = () => {
     const {setAuth} = useAuth();
     const logout = async () =>{
-        setAuth({});
+        setAuth();
         try{
             const response = await axios.get('/UserAPI/Logout', {
                 withCredentials: true

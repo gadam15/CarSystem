@@ -7,14 +7,16 @@ const Unauthorized = () => {
 
     return (
         <section>
-            <h1>Unauthorized</h1>
-            <br />
-            <p>You do not have access to the requested page.</p>
+            <article style={{ padding: "100px" }}>
+            <h2>Unauthorized!</h2>
             <div className="flexGrow">
                 <button onClick={goBack}>Go Back</button>
             </div>
+            </article>
+            
         </section>
     )
+    
 }
 
 export default Unauthorized

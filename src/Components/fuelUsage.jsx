@@ -1,10 +1,10 @@
 import React from "react";
 import { useState } from 'react';
-
+import Footer from "./Elements/footer";
 // import { Link } from "react-router-dom";
 import Navbar from "./Elements/navbar";
 
-const FuelUsage = () => {
+const FuelCost = () => {
     const [km, setKm] = useState('');
     const [price, setPrice] = useState('');
     const [people, setPeople] = useState('');
@@ -32,28 +32,52 @@ const FuelUsage = () => {
 
         let result = (FKm / 100 * FFuel * FPrice / FPeople).toFixed(2);
 
-        setHowMuch("Koszt jazdy " + result + " zł");       
+        if(isNaN(result)){
+            return setHowMuch("Set all data")
+        } else {
+                
+            return setHowMuch("Cost: " + result + " zł"); 
+        }
     };
 
     return(
         <>
-            <Navbar/>
-                <div className="zuzyciePaliwa">
-                    <h2>Ilość km</h2>
-                    <input type="number"  onChange={changeKm}/>
-                    <h2>Cena paliwa</h2>
-                    <input type="number" onChange={changePrice}/>
-                    <h2>Spalanie auta L/100km</h2>
-                    <input type="number" onChange={changeFuel}/>
-                    <h2>Ilośc osób</h2>
-                    <input type="number" onChange={changePeople}/><br/>
-                    <input type="button" onClick={Calc} value="Sprawdź" /><br />
+             
+             <div className="container h-75 text-center">
+        <section className="position-absolute top-50 start-50 translate-middle w-25 bg-dark bg-gradient p-2 rounded-2">
+          
+            <h4>Count how much you will pay for your trip (in PLN)</h4>
+            <form>
+                <label htmlFor="distance">
+                    Distance in km: 
+                </label>
+                <input type="number"  onChange={changeKm} className="rounded-2 text-center"/>
+                 <label htmlFor="price">
+                    Price in PLN: 
+                </label>
+                <input type="number" onChange={changePrice} className="rounded-2 text-center"/>
+                 <label htmlFor="fc"> 
+                    Fuel Consumption in l/100km:
+                </label>
+                <input type="number" onChange={changeFuel} className="rounded-2 text-center"/>
+                 <label htmlFor="np">
+                    Number of People: 
+                </label>
+                <input type="number" onChange={changePeople} className="rounded-2 text-center"/><br/>
+                 
+                 
+                 <input type="button" onClick={Calc} value="Check" className="btn btn-success"/>
+                 <br />
 
-                    <p>{howMuch}</p>
-                </div>
+                 <p style={{marginTop:"10px"}}>{howMuch}</p>
+            </form>
+            
+        </section>
+        </div>
+                
             
         </>
     );
 };
 
-export default FuelUsage;
+export default FuelCost;

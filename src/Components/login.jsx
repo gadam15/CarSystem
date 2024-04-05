@@ -42,9 +42,10 @@ const Login = () => {
             //console.log(JSON.stringify(response));
             const accessToken = response?.data?.jwtToken;
             const roles = [];
+            const id = response?.data?.id;
             roles.push(response?.data?.role)
             
-            setAuth({ user, pwd, roles, accessToken });
+            setAuth({ user, pwd, roles, accessToken, id});
             setUser('');
             setPwd('');
             navigate(from, {replace: true});

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
-import { useNavigate, useLocation} from "react-router-dom"
+import { useNavigate, useLocation, Link, redirect} from "react-router-dom"
 
 const Cars = () => {
     const [ cars, setCars] = useState();
@@ -38,24 +38,28 @@ const Cars = () => {
     return (
         
         <article>
-            <h2>Users List</h2>
+            <h2 className="text-center pt-3 pb-3">All Cars</h2>
             
             
             {cars?.length
                 ? ( 
                     <>
-                        <div className="container h-75">
-                            {cars.map((car, i) => 
-                            <>
-                            <div className="border pt-3 pb-3 d-flex justify-content-center" key={i}>
-                                <div className="container fs-2">{car?.marka}</div> 
-                                <div className="container fs-2"> {car?.model} </div>
-                                <div className="container fs-2" >{car?.rok} </div>
-                                <div className="container fs-2"> {car?.licznik}</div>
-                            </div>  
-                             <br />
-                            </>
-                         )}
+                        <div className="container h-75 text-center">
+                        {cars.map((car, i) => 
+
+                                <>
+
+                                <div className="pt-2 pb-2 d-flex justify-content-center bg-dark rounded-1" key={i}>
+                                    <div className="container fs-3">{car?.marka}</div> 
+                                    <div className="container fs-3"> {car?.model} </div>
+                                    <div className="container fs-3 "> 
+                                        <Link to={`/carDetails?id=${car?.id}`}><span className="btn btn-secondary m-1">Show more</span></Link>
+                                        
+                                    </div>
+                                </div>  
+                                <br />
+                                </>
+                                )}
                         </div>
                         </>   
                         
