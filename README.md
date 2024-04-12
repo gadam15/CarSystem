@@ -1,8 +1,6 @@
-# React + Vite
+CarSystem - Adam Wróel i Szymon Ledwoń
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Instrukcja do uruchomienia aplikacji w pliku CarSystem Instrukc
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+#UWAGA
+Jeśli nie działają zapytania do API pomimo uruchomienia, włączyć Swaggera w tej samej przeglądarce co frontend oraz potwierdzić wejście pomimo zagrożeń na stronę (API działa bez SSL, przeglądarka może blokować zapytania).
